@@ -15,6 +15,20 @@ source .venv/bin/activate
 pip install -U pip
 ```
 
+## Quick start
+
+1. Ensure Python 3.11+ is available.
+2. Clone this repository and enter the folder.
+3. (Optional) Create and activate a virtual environment with `python -m venv .venv && source .venv/bin/activate`.
+4. Run the executor directly with Python:
+
+```bash
+python -m ronix_executor list
+```
+
+This boots the CLI and shows all available scripts (a sample is auto-created on
+first run).
+
 ## Usage
 
 The CLI initializes with a sample script so you always have something to test.
