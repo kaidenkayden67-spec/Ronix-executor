@@ -60,5 +60,6 @@ python -m ronix_executor --scripts-dir ./my_scripts list
 * `python -m ronix_executor run <name>` simply prints the Lua source so you can
   copy it into Delta or another executor.
 * Default placeholders are created for `hello_world`, `blox_fruits`, `doors`,
-  `pet_simulator`, and `brookhaven` the first time you run the CLI (and they
-  are regenerated if missing).
+  `pet_simulator`, `brookhaven`, `grow_a_garden`, `rivals_99`, and
+  `night_in_the_forest` the first time you run the CLI (and they are
+  regenerated if missing).

@@ -71,6 +71,9 @@ class ScriptManager:
             "doors": """-- DOORS helper\n-- Insert your DOORS script or loot notifier here\nprint("Load your DOORS routine here")\n""",
             "pet_simulator": """-- Pet Simulator helper\n-- Customize with your favorite pet farming script\nprint("Load your Pet Simulator routine here")\n""",
             "brookhaven": """-- Brookhaven helper\n-- Drop in RP automation or quality-of-life scripts\nprint("Load your Brookhaven routine here")\n""",
+            "grow_a_garden": """-- Grow a Garden helper\n-- Plant your automation or farming logic here\nprint("Load your Grow a Garden routine here")\n""",
+            "rivals_99": """-- Rivals 99 helper\n-- Add combat, loot, or QoL tweaks for Rivals 99\nprint("Load your Rivals 99 routine here")\n""",
+            "night_in_the_forest": """-- Night in the Forest helper\n-- Slot in survival or resource scripts for Night in the Forest\nprint("Load your Night in the Forest routine here")\n""",
         }
 
         created: List[Script] = []
