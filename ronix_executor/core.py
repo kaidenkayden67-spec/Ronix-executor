@@ -12,6 +12,17 @@ from pathlib import Path
 from typing import Iterable, List
 
 
+def default_scripts_dir() -> Path:
+    """Return the cross-platform default scripts directory.
+
+    The folder lives under the user's home directory so the tool works on
+    Windows, Android (e.g., Termux), iOS Python apps, and desktop platforms
+    without requiring write access to the package installation path.
+    """
+
+    return Path.home() / ".ronix_executor" / "scripts"
+
+
 @dataclass
 class Script:
     """Represents a Roblox Lua script on disk."""
@@ -27,8 +38,10 @@ class Script:
 class ScriptManager:
     """Manage a collection of Lua scripts for Roblox executors."""
 
-    def __init__(self, scripts_dir: Path | str = "ronix_executor/scripts") -> None:
-        self.scripts_dir = Path(scripts_dir)
+    def __init__(self, scripts_dir: Path | str | None = None) -> None:
+        # Default to a user-writable location for Windows, Android/Termux, iOS
+        # Python environments, and POSIX systems.
+        self.scripts_dir = Path(scripts_dir) if scripts_dir is not None else default_scripts_dir()
         self.scripts_dir.mkdir(parents=True, exist_ok=True)
 
     def list_scripts(self) -> List[Script]:

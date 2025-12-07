@@ -10,7 +10,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from .core import ScriptManager
+from .core import ScriptManager, default_scripts_dir
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -18,7 +18,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--scripts-dir",
         type=Path,
-        default=Path("ronix_executor/scripts"),
+        default=default_scripts_dir(),
         help="Folder to store and read Lua scripts",
     )
 
