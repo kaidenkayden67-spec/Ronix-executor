@@ -31,10 +31,11 @@ first run).
 
 ## Usage
 
-The CLI initializes with a sample script so you always have something to test.
+The CLI initializes with bundled scripts for popular games so you always have
+something to test or customize.
 
 ```bash
-# list available scripts
+# list available scripts (hello world + popular games)
 python -m ronix_executor list
 
 # add a new script from stdin
@@ -58,5 +59,6 @@ python -m ronix_executor --scripts-dir ./my_scripts list
 * Scripts are saved as `.lua` files under `ronix_executor/scripts` by default.
 * `python -m ronix_executor run <name>` simply prints the Lua source so you can
   copy it into Delta or another executor.
-* The sample script lives at `ronix_executor/scripts/hello_world.lua` after the
-  first run.
+* Default placeholders are created for `hello_world`, `blox_fruits`, `doors`,
+  `pet_simulator`, and `brookhaven` the first time you run the CLI (and they
+  are regenerated if missing).

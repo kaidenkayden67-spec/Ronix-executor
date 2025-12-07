@@ -47,7 +47,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     manager = ScriptManager(args.scripts_dir)
-    manager.ensure_sample()
+    manager.ensure_default_scripts()
 
     if args.command == "list":
         scripts = manager.list_scripts()

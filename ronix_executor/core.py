@@ -58,12 +58,24 @@ class ScriptManager:
             )
         return script.load()
 
-    def ensure_sample(self) -> Script:
-        """Create a sample script if the folder is empty and return it."""
-        scripts = self.list_scripts()
-        if scripts:
-            return scripts[0]
-        return self.add_script(
-            "hello_world",
-            """-- Ronix sample script\nprint("Hello from Ronix executor!")\n""",
-        )
+    def ensure_default_scripts(self) -> List[Script]:
+        """Create bundled scripts for popular games if missing.
+
+        The goal is to ship placeholder Lua files for frequently requested games
+        so users can immediately tailor them to their own injector setups.
+        """
+
+        defaults: dict[str, str] = {
+            "hello_world": """-- Ronix sample script\nprint("Hello from Ronix executor!")\n""",
+            "blox_fruits": """-- Blox Fruits helper\n-- Add your preferred Blox Fruits script below\nprint("Load your Blox Fruits routine here")\n""",
+            "doors": """-- DOORS helper\n-- Insert your DOORS script or loot notifier here\nprint("Load your DOORS routine here")\n""",
+            "pet_simulator": """-- Pet Simulator helper\n-- Customize with your favorite pet farming script\nprint("Load your Pet Simulator routine here")\n""",
+            "brookhaven": """-- Brookhaven helper\n-- Drop in RP automation or quality-of-life scripts\nprint("Load your Brookhaven routine here")\n""",
+        }
+
+        created: List[Script] = []
+        for name, content in defaults.items():
+            target = self.scripts_dir / f"{name}.lua"
+            if not target.exists():
+                created.append(self.add_script(name, content))
+        return created or self.list_scripts()
